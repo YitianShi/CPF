@@ -9,7 +9,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 import torchvision.transforms.functional as tvF
-from pytorch3d.transforms import (
+from pytorch3d.transforms.rotation_conversions import (
     axis_angle_to_matrix,
     axis_angle_to_quaternion,
     euler_angles_to_matrix,
@@ -26,7 +26,6 @@ from .config import CN
 from .heatmap import generate_heatmap
 from .logger import logger
 from .misc import CONST
-
 
 class RandomOcclusion:
     """Add random occlusion based on occlusion probability.

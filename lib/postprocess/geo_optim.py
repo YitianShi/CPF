@@ -186,6 +186,7 @@ class GeOptimizer:
 
         vertex_id = torch.arange(anchor_id.shape[0])[:, None].repeat_interleave(anchor_padding_mask.shape[1],
                                                                                 dim=1)  # TENSOR[NCONT, 4]
+        vertex_id = vertex_id.to(self.device)
         self.const_val["indexed_vertex_id"] = vertex_id[anchor_padding_mask == 1]  # TENSOR[NVALID, ]
 
         tip_anchor_mask = torch.zeros(indexed_anchor_id.shape[0]).bool().to(self.device)
